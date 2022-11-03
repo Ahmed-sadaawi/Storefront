@@ -1,0 +1,17 @@
+{
+   "dev":{
+      "driver":"pg",
+      "host":"127.0.0.1",
+      "database":"front_store",
+      "user":"embaby",
+      "password":"embaby"
+   },
+
+   "test":{
+      "driver":"pg",
+      "host":"127.0.0.1",
+      "database":"front_store_test",
+      "user":"embaby",
+      "password":"embaby"
+   }
+}
