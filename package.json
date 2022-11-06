@@ -3,36 +3,37 @@
   "version": "1.0.0",
   "description": "## libraries and tools we need to install them from npm: - [Typescript](7) - [express](4) - [Jasmine](9) - [prettier](3) - [lint](4) - [migration](4) - [body-parser](2) - [cors](2) - [dotenv](3) - [pg](2) ## Steps and tricks:",
   "main": "index.js",
+  
   "scripts": {
-    "tsc": "tsc",
     "nodemon": "nodemon 'src/server.ts'",
     "prettier": "prettier --write 'src/**/*.ts'",
-    "test": "tsc && jasmine",
     "lint": "eslint 'src/**/*.ts'",
-    "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess 'node ./dist/server.js'"
+    "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess 'node ./dist/server.js'",
+
+    "test": "ENV=test npx db-migrate up -e test && tsc && jasmine && db-migrate reset -e test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ahmed-sadaawi/Storefront.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ahmed Sayed (Embaby)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Ahmed-sadaawi/Storefront/issues"
   },
   "homepage": "https://github.com/Ahmed-sadaawi/Storefront#readme",
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.14",
     "@types/jasmine": "^4.3.0",
     "@types/node": "^18.11.9",
+    "@types/pg": "^8.6.5",
     "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
     "cors": "^2.8.5",
-    "db-migrate": "^0.11.13",
-    "db-migrate-pg": "^1.2.2",
     "dotenv": "^16.0.3",
     "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.5.0",
@@ -47,7 +48,10 @@
     "tsc-watch": "^5.0.3"
   },
   "dependencies": {
+    "bcrypt": "^5.1.0",
     "body-parser": "^1.20.1",
+    "db-migrate": "^0.11.13",
+    "db-migrate-pg": "^1.2.2",
     "express": "^4.18.2",
     "pg": "^8.8.0",
     "typescript": "^4.8.4"

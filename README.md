@@ -35,7 +35,7 @@ $ npx tsc --init
 
 **Jasmine**
 ```
-% npm i --save-dev jasmine  
+% npm i jasmine  
 % npm i --save-dev @types/jasmine
 % npm i --save-dev jasmine-ts
 % npm i --save-dev supertest
@@ -69,7 +69,8 @@ tests
 ```
 $ npm install -g db-migrate
 $ npm i --save-dev db-migrate-pg
-$ npx db-migrate create mythical-worlds-table --sql-file
+$ npx db-migrate create filename --sql-file
 $ npx db-migrate up || down
+$ npx db-migrate reset --env test 
 ```
 `database.json`

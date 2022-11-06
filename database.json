@@ -1,17 +1,18 @@
 {
+   "defaultEnv":{"ENV": "ENV"},
    "dev":{
       "driver":"pg",
-      "host":"127.0.0.1",
-      "database":"front_store",
-      "user":"embaby",
-      "password":"embaby"
+      "host":{"ENV":"HOST"},
+      "database":{"ENV":"DB"},
+      "user":{"ENV":"USER"},
+      "password":{"ENV":"PASSWORD"}
    },
 
    "test":{
       "driver":"pg",
-      "host":"127.0.0.1",
-      "database":"front_store_test",
-      "user":"embaby",
-      "password":"embaby"
+      "host":{"ENV":"HOST"},
+      "database":{"ENV":"DB_TEST"},
+      "user":{"ENV":"USER"},
+      "password":{"ENV":"PASSWORD"}
    }
 }
