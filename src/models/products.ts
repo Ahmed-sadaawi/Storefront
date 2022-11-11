@@ -46,8 +46,8 @@ export class ProductClass {
   async create(product:ProductDataType): Promise<ProductDataType[]> {
     try {
       const conn  = await Client.connect();
-      const sql   = "INSERT INTO products (id, name, details, price) VALUES ($1, $2, $3, $4) RETURNING *";
-      const result= await conn.query(sql,[product.id, product.name, product.details, product.price]);
+      const sql   = "INSERT INTO products (name, details, price) VALUES ($1, $2, $3) RETURNING *";
+      const result= await conn.query(sql,[product.name, product.details, product.price]);
       conn.release();
       return result.rows[0];
     }

@@ -9,6 +9,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import UserRoutes from "./handles/users_handler";
 import ProductRoutes from "./handles/products_handler";
+import orderHandler from "./handles/orders_handler";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -23,5 +24,6 @@ app.use(cors());
 app.get('/', (_req:Request, res:Response) => res.send("Hello, world 🌎"));
 UserRoutes(app);
 ProductRoutes(app);
+orderHandler(app);
 
 app.listen(PORT, () => console.log(`Server runs at http://${HOST}:${PORT}`));

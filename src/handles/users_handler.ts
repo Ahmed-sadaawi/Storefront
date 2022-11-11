@@ -2,17 +2,27 @@
 
 import { Application, Request, Response } from "express";
 import { UserDataType, UserClass } from "../models/users";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+import verifyToken from "../middleware/jwt";
+dotenv.config();
+const { SECRET_TOKEN } = process.env;
 
 const store = new UserClass();
 
 const index = async (_req: Request, res: Response): Promise<void> => {
-   const user = await store.index();
-   res.json(user);
+   try {
+      const user = await store.index();
+      res.json(user);
+   }
+   catch (error) {
+      console.log(error);
+   }
 }
 
 const show = async (req: Request, res: Response): Promise<void> => {
    try {
-      const user = await store.show(parseInt(req.params.id));
+      const user = await store.show(parseInt(req.body.id));
       res.json(user);
    } catch (error) {
       console.log(error);
@@ -30,27 +40,30 @@ const create = async (req: Request, res: Response) => {
    };
    try {
       const user = await store.create(UserDataPass);
-      return res.json(user);
+      const token= jwt.sign({user: user}, SECRET_TOKEN as string);
+      return res.json(token);
    }
    catch (error) {
-      console.log(error);
-      
+      res.status(400);
+      res.json(error);
    }
 }
 
 const authenticate = async (req: Request, res: Response) => {
    try {
       const user = await store.authenticate(req.body.email, req.body.password);
-      return res.json(user);
+      const token= jwt.sign({u: user}, SECRET_TOKEN as string);
+      return res.json(token);
    }
    catch (error) {
-      console.log(error);
+      res.status(401);
+      res.json({error});
    }
 }
 
 const UserRoutes = async (app: Application): Promise<void> => {
-   app.get('/users', index);
-   app.get('/users/:id', show);
+   app.get('/users',verifyToken, index);
+   app.get('/users/:id',verifyToken, show);
    app.post('/users', create);
    app.post('/users/authenticate', authenticate);
 }

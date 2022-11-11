@@ -1,6 +1,7 @@
 /* بسم الله الرحمن الرحيم */
 
 import { Application, Request, Response } from "express";
+import verifyToken from "../middleware/jwt";
 import { ProductDataType, ProductClass } from "../models/products";
 
 const store = new ProductClass();
@@ -33,7 +34,6 @@ const create = async (req: Request, res: Response) => {
       price: req.body.price,
    };
    try {
-      
       const product = await store.create(productDataPass);
       res.json(product);
       console.log(productDataPass);
@@ -54,10 +54,10 @@ const del = async (req: Request, res: Response) => {
 }
 
 const ProductRoutes = async (app: Application): Promise<void> => {
-   app.post('/products', create);
+   app.post('/products',create);
    app.get('/products', index);
-   app.get('/products/:id', show);
-   app.delete('/products/:id', del);
+   app.get('/products/:id',   verifyToken, show);
+   app.delete('/products/:id',verifyToken, del);
 }
 
 export default ProductRoutes;
