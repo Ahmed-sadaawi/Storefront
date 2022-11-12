@@ -27,3 +27,5 @@ ProductRoutes(app);
 orderHandler(app);
 
 app.listen(PORT, () => console.log(`Server runs at http://${HOST}:${PORT}`));
+
+export default app;

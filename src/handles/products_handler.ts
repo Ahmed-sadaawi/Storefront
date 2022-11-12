@@ -54,9 +54,9 @@ const del = async (req: Request, res: Response) => {
 }
 
 const ProductRoutes = async (app: Application): Promise<void> => {
-   app.post('/products',create);
    app.get('/products', index);
-   app.get('/products/:id',   verifyToken, show);
+   app.get('/products/:id', show);
+   app.post('/products', verifyToken, create);
    app.delete('/products/:id',verifyToken, del);
 }
 

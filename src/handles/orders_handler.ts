@@ -18,11 +18,11 @@ const index = async (req:Request, res:Response): Promise<void>  => {
 
 const show = async (req:Request, res:Response): Promise<void>  => {
    try {
-      const show = await order.show(parseInt(req.body.user_id));
+      const show = await order.show(parseInt(req.params.user_id));
       res.json(show);
    }
    catch (error) {
-      res.status(404).send("🙂");
+      res.status(404).send("something whent wrong! 🙂");
    }
 }
 
@@ -63,4 +63,3 @@ const orderHandler = async (app: Application): Promise<void> => {
 }
 
 export default orderHandler;
-

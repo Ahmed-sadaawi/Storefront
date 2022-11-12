@@ -4,6 +4,7 @@
 import Client from "../database";
 import bcrypt from "bcrypt";
 import dotenv from "dotenv";
+
 dotenv.config();
 
 const {PEPPER, ROUNDS_SALT} = process.env; 
