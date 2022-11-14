@@ -1,5 +1,52 @@
 # بسم الله الرحمن الرحيم
 
+# Udacity: Storefront Backend
+
+This is a backend API build in Nodejs for an online store. It exposes a RESTful API that will be used by the front end developer.
+
+The database schema and the API route information can be found in the REQUIREMENT.md doc
+
+Install all library, packages and dependences by:
+
+`yarn` or `npm install`
+
+
+## Steps and tricks:
+
+### Set up Database:
+### Create tow database:
+- store `CREATE DATABASE store;`
+
+- store_test `CREATE DATABASE store_test;`
+
+## Environment variables:
+
+```
+PORT=5432
+NODE_ENV=dev
+
+# DATABASE CONNECTION DATA:
+HOST=127.0.0.1
+DB=store
+DB_TEST=store_test
+USER=embaby
+PASSWORD="123"
+
+# HASHING PASSWORDS:
+PEPPER=This-is-very-hot🍕🙂
+ROUNDS_SALT=7
+
+# JSON WEB TOKEN:
+SECRET_TOKEN="❤️لا اله الا الله في السر والعلن"
+```
+
+
+
+
+
+
+
+
 ## libraries and tools we need to install them from npm:
 - [Typescript](7)
 - [express](4)
@@ -11,66 +58,3 @@
 - [cors](3)
 - [dotenv](3)
 - [pg](2)
-
-## Steps and tricks:
-
-**Typescript**
-```
-$ npm i --save-dev typescript
-$ npm i --save-dev ts-node
-$ npm i --save-dev @types/node
-$ npm i --save-dev tsc-watch
-$ npx tsc --init
-"watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess 'node ./dist/server.js'",
-"build": "npx tsc"
-```
-
-**Express:**
-```
-> npm i express
-> npm i @types/express
-> npm i --save-dev nodemon
-"start":"nodemon src/server.ts"
-```
-
-**Jasmine**
-```
-% npm i jasmine  
-% npm i --save-dev @types/jasmine
-% npm i --save-dev jasmine-ts
-% npm i --save-dev supertest
-% npm i --save-dev @types/supertest
-% npm i --save-dev jasmine-spec-reporter
-% npx jasmine init
-% "test":"npx tsc && jasmine-ts"
-
-tests
-│     ├── helpers
-│     │      └── reporter.ts // from udacity
-│     └── indexSpec.ts
-```
-
-**Prettier:**
-```
-> npm i --save-dev prettier
-> touch .prettierrc
-"prettier":"prettier --write src/**/*.ts"
-```
-
-**eslint:**
-```
-> npm i --save-dev eslint eslint-config-prettier eslint-plugin-prettier 
-> npm init @eslint/config
-'prettier/prettier': 2
-"lint":"eslint src/**/*.ts"
-```
-
-**migration:**
-```
-$ npm install -g db-migrate
-$ npm i --save-dev db-migrate-pg
-$ npx db-migrate create filename --sql-file
-$ npx db-migrate up || down
-$ npx db-migrate reset --env test 
-```
-`database.json`
