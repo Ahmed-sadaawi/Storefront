@@ -14,7 +14,7 @@ Install all library, packages and dependences by:
 ## Steps and tricks:
 
 ### Set up Database:
-### Create tow database:
+### Create tow databases:
 - store `CREATE DATABASE store;`
 
 - store_test `CREATE DATABASE store_test;`
@@ -39,22 +39,3 @@ ROUNDS_SALT=7
 # JSON WEB TOKEN:
 SECRET_TOKEN="❤️لا اله الا الله في السر والعلن"
 ```
-
-
-
-
-
-
-
-
-## libraries and tools we need to install them from npm:
-- [Typescript](7)
-- [express](4)
-- [Jasmine](9)
-- [prettier](3)
-- [lint](4)
-- [migration](4)
-- [body-parser](2)
-- [cors](3)
-- [dotenv](3)
-- [pg](2)
