@@ -1,6 +1,6 @@
 CREATE TABLE users (
    id SERIAL  PRIMARY KEY,
-   username   VARCHAR(50),
+   username   VARCHAR(50)  NOT NULL UNIQUE,
    email      VARCHAR(50)  NOT NULL UNIQUE,
    password   VARCHAR(255) NOT NULL,
    first_name VARCHAR(50),
@@ -13,11 +13,11 @@ CREATE TABLE products (
    details VARCHAR(255), 
    price   INTEGER NOT NULL
 );
-
+CREATE TYPE order_status AS ENUM('complate', 'avtive');
 CREATE TABLE  orders (
    id SERIAL PRIMARY KEY, 
    user_id INTEGER REFERENCES users(id),
-   status CHAR(9) NOT NULL
+   status order_status,
 );
 
 CREATE TABLE order_details (

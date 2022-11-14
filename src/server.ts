@@ -14,8 +14,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app:Application = express();
-const HOST:number|string = process.env.HOST || "localhost";
-const PORT:number = 3000;
+export const HOST:number|string = process.env.HOST || "localhost";
+export const PORT:number = 3000;
 
 app.use(express.json());
 app.use(bodyParser.json());

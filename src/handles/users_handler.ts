@@ -13,6 +13,7 @@ const store = new UserClass();
 const index = async (_req: Request, res: Response): Promise<void> => {
    try {
       const user = await store.index();
+
       res.json(user);
    }
    catch (error) {

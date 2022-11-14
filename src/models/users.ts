@@ -1,6 +1,5 @@
 /* بسم الله الرحمن الرحيم */
 
-
 import Client from "../database";
 import bcrypt from "bcrypt";
 import dotenv from "dotenv";
@@ -29,7 +28,7 @@ export class UserClass {
       const sql   = "SELECT * FROM users";
       const result= await conn.query(sql);
       conn.release();
-      return result.rows;
+      return result.rows[0];
     }
     catch (error) {
       throw new Error(`Cannot get users: ${error}`);

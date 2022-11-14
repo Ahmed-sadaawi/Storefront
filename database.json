@@ -1,5 +1,5 @@
 {
-   "defaultEnv":{"ENV": "ENV"},
+   "defaultEnv":{ "ENV": "NODE_ENV" },
    "dev":{
       "driver":"pg",
       "host":{"ENV":"HOST"},
@@ -7,7 +7,7 @@
       "user":{"ENV":"USER"},
       "password":{"ENV":"PASSWORD"}
    },
-
+   
    "test":{
       "driver":"pg",
       "host":{"ENV":"HOST"},
