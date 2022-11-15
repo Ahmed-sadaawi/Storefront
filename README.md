@@ -20,12 +20,11 @@ Install all library, packages and dependences by:
 - store_test `CREATE DATABASE store_test;`
 
 ## Environment variables:
-
 ```
 PORT=5432
 NODE_ENV=dev
 
-# DATABASE CONNECTION DATA:
+# DATABASE CONNECTION:
 HOST=127.0.0.1
 DB=store
 DB_TEST=store_test
