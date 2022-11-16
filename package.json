@@ -7,7 +7,8 @@
     "prettier": "prettier --write 'src/**/*.ts'",
     "lint": "eslint 'src/**/*.ts'",
     "start": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess 'node ./dist/server.js'",
-    "test": "npx db-migrate up --env test && export NODE_ENV=test|| set NODE_ENV=test && tsc && jasmine && npx db-migrate down --env test"
+    "db-dev":"npx db-migrate up --env dev",
+    "test": "npx db-migrate down --env test && npx db-migrate up --env test && export NODE_ENV=test|| set NODE_ENV=test && tsc && jasmine"
   },
   "repository": {
     "type": "git",

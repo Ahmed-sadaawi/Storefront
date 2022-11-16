@@ -25,7 +25,7 @@ export class UserClass {
   async index(): Promise<UserDataType[]> { // Returns an array of object with data about the user;
     try {
       const conn  = await Client.connect();
-      const sql   = "SELECT * FROM users";
+      const sql   = "SELECT * FROM users;";
       const result= await conn.query(sql);
       conn.release();
       return result.rows[0];
@@ -62,7 +62,7 @@ export class UserClass {
     }
   }
   // AUTHENTICATE:
-  async authenticate(email:string, password:string): Promise<null | UserDataType[]> {
+  async authenticate(email:string, password:string) {
     try {
       const conn  = await Client.connect();
       const sql   = "SELECT * FROM users WHERE email=($1)";

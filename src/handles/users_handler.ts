@@ -13,7 +13,6 @@ const store = new UserClass();
 const index = async (_req: Request, res: Response): Promise<void> => {
    try {
       const user = await store.index();
-
       res.json(user);
    }
    catch (error) {
@@ -23,7 +22,7 @@ const index = async (_req: Request, res: Response): Promise<void> => {
 
 const show = async (req: Request, res: Response): Promise<void> => {
    try {
-      const user = await store.show(parseInt(req.body.id));
+      const user = await store.show(parseInt(req.params.id));
       res.json(user);
    } catch (error) {
       console.log(error);
@@ -42,7 +41,7 @@ const create = async (req: Request, res: Response) => {
    try {
       const user = await store.create(UserDataPass);
       const token= jwt.sign({user: user}, SECRET_TOKEN as string);
-      return res.json(token);
+      return res.json({user:user,token:token});
    }
    catch (error) {
       res.status(400);
@@ -52,9 +51,9 @@ const create = async (req: Request, res: Response) => {
 
 const authenticate = async (req: Request, res: Response) => {
    try {
-      const user = await store.authenticate(req.body.email, req.body.password);
-      const token= jwt.sign({u: user}, SECRET_TOKEN as string);
-      return res.json(token);
+      const User = await store.authenticate(req.body.email, req.body.password);
+      const token= jwt.sign({u: User}, SECRET_TOKEN as string);
+      return res.json({user:User,token:token});
    }
    catch (error) {
       res.status(401);

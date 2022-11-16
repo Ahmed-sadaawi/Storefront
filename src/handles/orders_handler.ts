@@ -56,7 +56,7 @@ const orderDetails = async (req:Request, res:Response): Promise<void> => {
 }
 
 const orderHandler = async (app: Application): Promise<void> => {
-   app.get('/orders'          ,           index);
+   app.get('/orders'          , verifyToken, index);
    app.get('/orders/:user_id' , verifyToken, show);
    app.post('/orders'         , verifyToken, create);
    app.post('/orders/products', verifyToken, orderDetails);

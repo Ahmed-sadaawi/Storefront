@@ -12,10 +12,11 @@ dotenv.config();
 
 /* علي بركة وبسم الله نبدأ */
 // The type of data will returns from database;
-export type ProductDataType = {id:number; name:string; details:string; price:number;};
+export type ProductDataType = {id?:number; name:string; details:string; price:number;};
 
 // Here is the product class;
 export class ProductClass {
+
   // INDEX:
   async index(): Promise<ProductDataType[]> { // Returns an array of object with data about the product;
     try {
