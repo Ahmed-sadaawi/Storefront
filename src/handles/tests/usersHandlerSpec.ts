@@ -19,7 +19,7 @@ describe("Test user endpoints", () => {
    }
    it("Status should returnd 200 when try to add a new user🧑‍💻 (CREATE)", async () => {
       const res = await req.post('/users').send(user);
-      
+
       expect(res.status).toBe(200);
    });
    

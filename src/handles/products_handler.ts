@@ -28,19 +28,16 @@ const show = async (req: Request, res: Response): Promise<void> => {
 
 const create = async (req: Request, res: Response) => {
    const productDataPass: ProductDataType = {
-      id: req.body.id,
       name: req.body.name,
       details: req.body.details,
-      price: req.body.price,
+      price: req.body.price
    };
    try {
       const product = await store.create(productDataPass);
-      res.json(product);
-      console.log(productDataPass);
+     return res.json(product);
    }
    catch (error) {
-      console.log(error);
-      
+      console.log(error)
    }
 }
 const del = async (req: Request, res: Response) => {

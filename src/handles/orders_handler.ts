@@ -26,14 +26,14 @@ const show = async (req:Request, res:Response): Promise<void>  => {
    }
 }
 
-const create = async (req:Request, res:Response) => {
+const create = async (req:Request, res:Response): Promise<void> => {
    try {
       const orderPassData: OrderDataType = { 
          user_id: req.body.user_id,
          status: req.body.status
       };
       const create = await order.create(orderPassData);
-      return res.json(create);
+      res.json(create);
    }
    catch (error) {
       res.status(404).send(error);
@@ -56,8 +56,8 @@ const orderDetails = async (req:Request, res:Response): Promise<void> => {
 }
 
 const orderHandler = async (app: Application): Promise<void> => {
-   app.get('/orders'          , index);
-   app.get('/orders/:user_id' , show);
+   app.get('/orders'          , verifyToken, index);
+   app.get('/orders/:user_id' , verifyToken, show);
    app.post('/orders'         , verifyToken, create);
    app.post('/orders/products', verifyToken, orderDetails);
 }

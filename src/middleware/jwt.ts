@@ -1,4 +1,4 @@
-// /* بسم الله الرحمن الرحيم */
+/* بسم الله الرحمن الرحيم */
 
 import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
@@ -16,7 +16,7 @@ const verifyToken = (req: Request, res: Response, next: Function) => {
 
    try {
       jwt.verify(token, SECRET_TOKEN as string);
-      next();
+      return next();
    }
    catch (error) {
       res.status(400);
