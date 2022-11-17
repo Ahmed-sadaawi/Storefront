@@ -47,7 +47,11 @@ postgres=# \l
 ```
 #### **Then**, create a new user and grand all privilegeses to this user by this command:
 ```
-$ CREATE USER ahmed WITH PASSWORD '123'; 
+$ CREATE USER embaby WITH PASSWORD '123';
+$ GRANt ALL PRIVILEGES ON DATABASE store TO embaby;
+// grant for test database:
+$ GRANt ALL PRIVILEGES ON DATABASE store_test TO embaby;
+
 ```
 #### Create databases:
 If you don't have any of these databases `store` and `store_test` then we can create them by:

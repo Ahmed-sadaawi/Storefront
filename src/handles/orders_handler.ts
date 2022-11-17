@@ -6,7 +6,7 @@ import { OrderDataType, OrderDetailsDataType, OrderClass } from "../models/order
 
 const order = new OrderClass();
 
-const index = async (req:Request, res:Response): Promise<void>  => {
+const index = async (_req:Request, res:Response): Promise<void>  => {
    try {
       const index = await order.index();
       res.json(index);
@@ -56,8 +56,8 @@ const orderDetails = async (req:Request, res:Response): Promise<void> => {
 }
 
 const orderHandler = async (app: Application): Promise<void> => {
-   app.get('/orders'          , verifyToken, index);
-   app.get('/orders/:user_id' , verifyToken, show);
+   app.get('/orders'          , index);
+   app.get('/orders/:user_id' , show);
    app.post('/orders'         , verifyToken, create);
    app.post('/orders/products', verifyToken, orderDetails);
 }

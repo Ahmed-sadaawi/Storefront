@@ -13,7 +13,7 @@ CREATE TABLE products (
    details VARCHAR(255), 
    price   INTEGER NOT NULL
 );
-CREATE TYPE order_status AS ENUM('complate', 'avtive');
+CREATE TYPE order_status AS ENUM('complete', 'avtive');
 CREATE TABLE  orders (
    id SERIAL PRIMARY KEY, 
    user_id INTEGER REFERENCES users(id),

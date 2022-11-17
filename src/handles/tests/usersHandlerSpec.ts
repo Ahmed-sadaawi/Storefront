@@ -11,8 +11,8 @@ const req = supertest(app);
 
 describe("Test user endpoints", () => {
    const user:UserDataType ={
-      "username": "ahmed",
-      "email": "ahme2@gail.com",
+      "username": "ahmed11",
+      "email": "ahme112@gail.com",
       "password": "123",
       first_name: "",
       last_name: ""
@@ -45,5 +45,3 @@ describe("Test user endpoints", () => {
       expect(res.status).toBe(200);
    });
 });
-
-export default Token;

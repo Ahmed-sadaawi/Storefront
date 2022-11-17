@@ -48,7 +48,7 @@ export class UserClass {
     }
   }
   // CREATE:
-  async create(user:UserDataType): Promise<UserDataType[]> {
+  async create(user:UserDataType): Promise<UserDataType[]>{
     try {
       const conn  = await Client.connect();
       const sql   = "INSERT INTO users (username, email, password, first_name, last_name) VALUES ($1, $2, $3, $4, $5) RETURNING *";

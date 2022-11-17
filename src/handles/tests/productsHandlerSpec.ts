@@ -33,15 +33,10 @@ describe("Suite, Product endpoints", () => {
       const res = await req.post('/products').auth(token, {type: 'bearer'}).send(product);
       expect(res.status).toBe(200);
    });
-   it("Spec, Delete a product🟥🛍", async () => {
-      const res = await req.delete('/products').auth(token, {type: 'bearer'}).send(product.name);
-      expect(res.status).toBe(200);
-   });
-
    afterAll( async () => {
       const conn = Client.connect();
       const sql = "DELETE FROM products;";
       (await conn).query(sql);
       (await conn).release();
-   /});
+   });
 });
