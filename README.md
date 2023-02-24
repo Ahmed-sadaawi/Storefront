@@ -98,7 +98,7 @@ PEPPER=This-is-very-hot🍕🙂
 ROUNDS_SALT=7
 
 # JSON WEB TOKEN:
-SECRET_TOKEN="❤️لا اله الا الله في السر والعلن"
+SECRET_TOKEN="alksdjfakjsdf"
 ```
 
 ### API Endpoints:
